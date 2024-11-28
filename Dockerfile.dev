@@ -1,0 +1,25 @@
+# Use a lightweight Node.js base image
+FROM node:18.17.1-alpine
+
+# Update and install necessary packages
+RUN apk update && apk add --no-cache libc6-compat
+
+# Set working directory
+WORKDIR /app
+
+# Set up pnpm environment
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
+
+# Copy the application code
+COPY . .
+
+# Install dependencies using pnpm
+RUN pnpm install --frozen-lockfile
+
+# Expose the port for the application
+EXPOSE 3000
+
+# Command to start the development server
+CMD ["pnpm", "dev"]
