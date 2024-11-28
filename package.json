@@ -33,8 +33,7 @@
     "react-dom": "18.2.0",
     "urql": "^4.0.2",
     "uuid": "^11.0.3",
-    "vite": "5.2.10",
-    "vitest": "1.5.2"
+    "vite": "5.2.10"
   },
   "packageManager": "pnpm@9.12.3",
   "devDependencies": {
@@ -48,15 +47,20 @@
     "@graphql-codegen/urql-introspection": "2.2.1",
     "@graphql-typed-document-node/core": "^3.2.0",
     "@saleor/eslint-plugin-saleor-app": "^0.1.2",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.0.1",
+    "@testing-library/user-event": "^14.5.2",
     "@types/node": "^18.11.18",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
     "@types/uuid": "^10.0.0",
+    "dotenv": "^16.4.5",
     "eslint": "8.31.0",
     "eslint-config-next": "13.1.2",
     "eslint-config-prettier": "^8.6.0",
     "prettier": "^2.8.2",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "vitest": "1.5.2"
   },
   "lint-staged": {
     "*.{js,ts,tsx}": "eslint --cache --fix",

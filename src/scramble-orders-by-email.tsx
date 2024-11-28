@@ -96,21 +96,9 @@ gql`
   }
 `;
 
-const scrambleDetails = ({ firstName, lastName, phone }: { firstName: string; lastName: string; phone?: string | null | undefined }) => {
+export const scrambleDetails = ({ firstName, lastName, phone }: { firstName: string; lastName: string; phone?: string | null | undefined }) => {
   const scrambledFirstName = "";
   const scrambledLastName = "";
-  
-  // Always generate a new random valid phone number
-  // const generateRandomPhone = (): string => {
-  //   const countryCode = "US"; // Default region for generating phone numbers
-  //   const areaCode = Math.floor(100 + Math.random() * 900).toString(); // Random 3-digit area code
-  //   const localNumber = Math.floor(1000000 + Math.random() * 9000000).toString(); // Random 7-digit number
-  //   const rawPhone = `${areaCode}${localNumber}`;
-  //   const formattedPhone = new AsYouType(countryCode).input(rawPhone);
-
-  //   return formattedPhone || "+10000000000"; // Fallback if generation fails
-  // };
-
   const scrambledPhone =  "5551234567";
   
   return { scrambledFirstName, scrambledLastName, scrambledPhone };
@@ -119,9 +107,10 @@ const scrambleDetails = ({ firstName, lastName, phone }: { firstName: string; la
 /**
  * Function to scramble user details including email
  */
-function scrambleUserDetails(originalEmail: string): { firstName: string; lastName: string; email: string } {
+export function scrambleUserDetails(originalEmail: string): { firstName: string; lastName: string; email: string } {
+  const domain = process.env.NEXT_PUBLIC_CUSTOMER_SCRAMBLE_DOMAIN || "example.com";
   const sharedUuid = uuidv4(); // Generate a shared UUID for the order
-  const scrambledEmail = `${sharedUuid}@lush.com`; // Construct anonymized email
+  const scrambledEmail = `${sharedUuid}@${domain}`; // Construct anonymized email
 
   return {
     firstName:"",
@@ -239,6 +228,7 @@ export const ScrambleAllOrdersByEmail = () => {
       });
 
       if (updateError || updateData?.orderUpdate?.errors?.length) {
+        console.log(scrambledUser.email);
         console.log(updateError, updateData?.orderUpdate?.errors);
         errors.push(`Failed to update order #${order.number}`);
       }
