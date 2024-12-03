@@ -1,6 +1,5 @@
 import { useAppBridge } from "@saleor/app-sdk/app-bridge";
 import { v4 as uuidv4 } from "uuid";
-import { parsePhoneNumberFromString, AsYouType } from "libphonenumber-js";
 import gql from "graphql-tag";
 import { useState } from "react";
 import { CountryCode, useOrderUpdateMutation, useUserByEmailQuery, useCustomerDeleteMutation } from "../generated/graphql";
@@ -99,7 +98,7 @@ gql`
 export const scrambleDetails = ({ firstName, lastName, phone }: { firstName: string; lastName: string; phone?: string | null | undefined }) => {
   const scrambledFirstName = "";
   const scrambledLastName = "";
-  const scrambledPhone =  "5551234567";
+  const scrambledPhone =  "";
   
   return { scrambledFirstName, scrambledLastName, scrambledPhone };
 };
