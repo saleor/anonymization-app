@@ -18,7 +18,7 @@ export default createManifestHandler({
     const apiBaseURL = process.env.APP_API_BASE_URL ?? appBaseUrl;
 
     const manifest: AppManifest = {
-      name: 'Saleor App Template',
+      name: 'Anonymization App',
       tokenTargetUrl: `${apiBaseURL}/api/register`,
       appUrl: iframeBaseUrl,
       /**
@@ -34,7 +34,7 @@ export default createManifestHandler({
         "MANAGE_ORDERS",
         "MANAGE_USERS",
       ],
-      id: "saleor.app",
+      id: "saleor.io.anonymization-app",
       version: packageJson.version,
       /**
        * Optionally, extend Dashboard with custom UIs
