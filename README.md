@@ -1,3 +1,7 @@
+> [!WARNING]
+> This repository has been moved to the [Saleor Apps project].
+
+[Saleor Apps project]: https://github.com/saleor/apps/tree/main/apps/anonymizer#readme
 
 <div align="center">
 <img width="150" alt="saleor-app-template" src="https://user-images.githubusercontent.com/4006792/215185065-4ef2eda4-ca71-48cc-b14b-c776e0b491b6.png">
